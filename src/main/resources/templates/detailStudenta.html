@@ -2,41 +2,39 @@
 <html lang="cs" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Můj blog</title>
+    <title>detail tridy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet"
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="image/png" href="/images/favicon.png">
 </head>
-<body bgcolor="#faebd7" >
+<body bgcolor="#faebd7">
 
-<!--
-Jméno a příjmení studenta bude zároveň fungovat
-jako odkaz na stránku s detailními informacei o studentovi..
-Stránka s detailními informacemi o studentovi bude obsahovat jméno a příjmení studenta,
- název třídy, do které chodí, a seznam jeho rodičů. Seznam bude setříděn abecedně podle příjmení a jména,
- bude se zobrazovat jméno, příjmení, e-mail a telefonní číslo rodiče.
-  E-mail a telefonní číslo nemusí být uveden. Název třídy na
-stránce s detailem studenta bude fungovat jako odkaz na detailní stránku dané třídy.-->
+<!--a seznam jeho rodičů. Seznam bude setříděn abecedně podle příjmení a jména, bude se zobrazovat jméno,
+příjmení, e-mail a telefonní číslo rodiče. E-mail a telefonní číslo nemusí být uveden.
+Název třídy na stránce s detailem studenta bude fungovat jako odkaz na detailní stránku dané třídy...-->
+<div class="detail">
+    <h1>Detail studenta <span th:text="${student.jmeno+' '+student.prijmeni}">text</span></h1>
+    <h2>zaka tridy
+        <a th:text="${student.trida.nazev}" th:href="@{~/{id}(id=${student.trida.id})}"> jmenotridy</a>
+    </h2>
 
-<h1>seznam trid</h1>
-<table class="u-full-width">
-    <thead>
-    <tr>
-        <th>autor</th>
-        <th>Nazev clanku</th>
-        <th>Datum publikovani</th>
-        <th> na článek</th>
-    </tr>
-    </thead>
-    <tbody>
 
-    <tr th:each="post: ${post}">
-        <td th:text="${post.author}">Jmeno autora</td>
-        <td th:utext="${post.title}">nazev blogu</td>
-        <td th:utext="${#temporals.format(post.published, 'd. MMMM yyyy')}">1370</td>
-        <td bgcolor="#7fffd4" > <a th:href="@{/post/{slugPart}(slugPart=${post.slug})}">Přečíst</a></td>
-    </tr>
-    </tbody>
+    <div th:each="rodic: ${student.rodice}" >
+        <div class="vizitka">
+            <div class="jmeno" th:text="${rodic.jmeno+' '+rodic.prijmeni}">Dita (Přikrylová) Formánková</div>
+            <div class="udaje">
 
-    <div> <a href="../" >Zpatky na prehled trid</a> </div>
+                <div class="kontakty">
+                    <div th:if="${rodic.email} != null"><i class="las la-at"></i> <span th:text="${rodic.email}">dita@czechitas.cs</span></div>
+                    <div th:if="${rodic.telefon} != null"><i class="las la-phone-alt"></i> <span th:text="${rodic.telefon}">+420 800123456</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div><h3><a href="../../">Zpatky na prehled trid</a></h3></div>
+</div>
 </body>
 </html>

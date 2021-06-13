@@ -30,7 +30,8 @@ Jméno a příjmení studenta bude zároveň fungovat jako odkaz na stránku s d
     <tbody>
 
     <tr th:each="student: ${trida.studenti}" >
-        <td ><a th:text="${student.jmeno+' '+student.prijmeni}" th:href="@{/student/{id}(id=${student.id})}">Jmeno studenta </a></td>
+        <td >
+            <a th:text="${student.jmeno+' '+student.prijmeni}" th:href="@{/student/{id}(id=${student.id})}">Jmeno studenta </a></td>
 
 
     </tr>

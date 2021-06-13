@@ -12,4 +12,8 @@ public class StudentService {
     public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
+
+    public Object dejJednoho(int id) {
+    return studentRepository.getOne(id);
+    }
 }
