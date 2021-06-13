@@ -12,7 +12,9 @@
 jméno a příjmení třídního učitele a seznam studentů ve třídě, seřazený obecedně podle příjmení a jména studenta.
 Jméno a příjmení studenta bude zároveň fungovat jako odkaz na stránku s detailními informacei o studentovi..-->
 
-<h1>seznam trid</h1>
+<h1>Detail tridy <span th:text="${trida.nazev}">text</span></h1>
+
+<!--
 <table class="u-full-width">
     <thead>
     <tr>
@@ -31,7 +33,7 @@ Jméno a příjmení studenta bude zároveň fungovat jako odkaz na stránku s d
         <td bgcolor="#7fffd4" > <a th:href="@{/post/{slugPart}(slugPart=${post.slug})}">Přečíst</a></td>
     </tr>
     </tbody>
-
+-->
     <div> <a href="../" >Zpatky na prehled trid</a> </div>
 </body>
 </html>
