@@ -24,6 +24,7 @@ public class Trida {
   @JoinColumn(name = "tridni_ucitel_id")
   private Ucitel tridniUcitel;
 
+
   @OneToMany(mappedBy = "trida")
   @OrderBy(value="prijmeni, jmeno")
   private List<Student> studenti;

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Můj blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+</head>
+<body bgcolor="#faebd7" >
+
+<!--
+Jméno a příjmení studenta bude zároveň fungovat
+jako odkaz na stránku s detailními informacei o studentovi..
+Stránka s detailními informacemi o studentovi bude obsahovat jméno a příjmení studenta,
+ název třídy, do které chodí, a seznam jeho rodičů. Seznam bude setříděn abecedně podle příjmení a jména,
+ bude se zobrazovat jméno, příjmení, e-mail a telefonní číslo rodiče.
+  E-mail a telefonní číslo nemusí být uveden. Název třídy na
+stránce s detailem studenta bude fungovat jako odkaz na detailní stránku dané třídy.-->
+
+<h1>seznam trid</h1>
+<table class="u-full-width">
+    <thead>
+    <tr>
+        <th>autor</th>
+        <th>Nazev clanku</th>
+        <th>Datum publikovani</th>
+        <th> na článek</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="post: ${post}">
+        <td th:text="${post.author}">Jmeno autora</td>
+        <td th:utext="${post.title}">nazev blogu</td>
+        <td th:utext="${#temporals.format(post.published, 'd. MMMM yyyy')}">1370</td>
+        <td bgcolor="#7fffd4" > <a th:href="@{/post/{slugPart}(slugPart=${post.slug})}">Přečíst</a></td>
+    </tr>
+    </tbody>
+
+    <div> <a href="../" >Zpatky na prehled trid</a> </div>
+</body>
+</html>
