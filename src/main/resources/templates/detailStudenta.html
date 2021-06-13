@@ -12,19 +12,18 @@
 </head>
 <body bgcolor="#faebd7">
 
-<!--a seznam jeho rodičů. Seznam bude setříděn abecedně podle příjmení a jména, bude se zobrazovat jméno,
-příjmení, e-mail a telefonní číslo rodiče. E-mail a telefonní číslo nemusí být uveden.
-Název třídy na stránce s detailem studenta bude fungovat jako odkaz na detailní stránku dané třídy...-->
+
 <div class="detail">
     <h1>Detail studenta <span th:text="${student.jmeno+' '+student.prijmeni}">text</span></h1>
-    <h2>zaka tridy
-        <a th:text="${student.trida.nazev}" th:href="@{~/{id}(id=${student.trida.id})}"> jmenotridy</a>
+    <h2>Žák třídy
+        <a th:text="${student.trida.nazev}" th:href="@{/{id}(id=${student.trida.id})}"> jmenotridy</a>
     </h2>
 
-
+    <div class="firma"> Rodiče: </div>
     <div th:each="rodic: ${student.rodice}" >
         <div class="vizitka">
             <div class="jmeno" th:text="${rodic.jmeno+' '+rodic.prijmeni}">Dita (Přikrylová) Formánková</div>
+
             <div class="udaje">
 
                 <div class="kontakty">
@@ -34,7 +33,7 @@ Název třídy na stránce s detailem studenta bude fungovat jako odkaz na detai
             </div>
         </div>
     </div>
-    <div><h3><a href="../../">Zpatky na prehled trid</a></h3></div>
+    <div><h3><a href="../../">Zpátky na prehled tříd</a></h3></div>
 </div>
 </body>
 </html>

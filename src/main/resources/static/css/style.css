@@ -88,6 +88,7 @@ form.vizitka {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 .detail nav {
@@ -127,8 +128,4 @@ label {
 
 input {
     width: 100%;
-}
-
-#psc {
-    width: 10em;
 }
