@@ -27,4 +27,5 @@ public class TridaController {
         return new ModelAndView("detailTridy")
                 .addObject("trida",tridaService.dejJednu(id));
     }
+    //@GetMapping ("/student/{id}" )
 }
