@@ -1,0 +1,27 @@
+
+
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tridy jedne Skoly</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+</head>
+<body>
+
+<div class="seznam">
+    <a href="/1" th:each="trida : ${trida}" th:href="@{/{id}(id=${trida.id})}">
+        <div class="vizitka">
+            <div class="jmeno" th:text="${trida.nazev}">jmeno tridy</div>
+            <div class="firma" >klikni pro detail</div>
+
+        </div>
+    </a>
+
+</div>
+</body>
+</html>
